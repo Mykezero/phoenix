@@ -1,3 +1,0 @@
-#!/bin/sh
-
-LUAROCKS_SYSCONFDIR='/usr/local/etc/luarocks' LUA_INIT='package.path="/usr/local/share/lua/5.2/?.lua;/usr/local/share/lua/5.2/?/init.lua;/usr/share/lua/5.2/?.lua;/usr/share/lua/5.2/?/init.lua;/usr/lib64/lua/5.2/?.lua;/usr/lib64/lua/5.2/?/init.lua;./?.lua;/home/mykezero/.luarocks/share/lua/5.2/?.lua;/home/mykezero/.luarocks/share/lua/5.2/?/init.lua";package.cpath="/usr/local/lib/lua/5.2/?.so;/usr/lib64/lua/5.2/?.so;/usr/lib64/lua/5.2/loadall.so;./?.so;/home/mykezero/.luarocks/lib/lua/5.2/?.so"' exec '/usr/bin/lua5.2' '/usr/local/lib/luarocks/rocks-5.2/luarocks/3.0.4-1/bin/luarocks' --project-tree /mnt/c/Users/michael.bartron/Documents/GitHub/luafarm/lua_modules "$@"
