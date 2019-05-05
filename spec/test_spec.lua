@@ -10,12 +10,14 @@ describe("Engage", function()
     end)
 end)
 
-describe("Run", function()
-    it("should execute behavior", function ()
-        local sut = createsut()
-        sut.run({ execute = function() sut.status = 1 end})
-        assert.are.equal(1, sut.status)
-    end)
+describe("Run", function()	
+	it("should log the input context", function()
+		local sut = createsut()
+		local context = { command = "HIT!"}
+		sut.run(context)
+		local result = sut.getlogs()
+		assert.same({ context }, result)
+	end)
 end)
 
 describe("FindMob", function ()
@@ -37,38 +39,10 @@ describe("Replay", function()
 		sut.replay({ 
 			method = "sendcommand", 
 			inputs = "/attack on" 
-			}
-		)
+		})
 		assert.stub(sut.sendcommand).was.called_with("/attack on")
 	end)
 end)
-
-describe("Record", function()
-	it("record method call with one argument", function() 
-		local sut = createsut()
-		sut.sendcommand("/attack on")
-		local result = sut.getlogs()
-		assert.are.equal("sendcommand", result.method)
-		assert.are.equal("/attack on", result.inputs)
-	end)
-end)
-
-function findlog()
-	return [[
-	[
-	   {
-		  "start":"2019-05-04 18:00:00.000Z",
-		  "end":"2019-05-04 18:00:01.000Z",
-		  "name":"testmethod",
-		  "input":{ "name":"player" },
-		  "locals":{ "a":2 },
-		  "output": { "hit" },
-		  "calls": { }
-	   }
-	]
-	]]
-end
-
 
 function createsut()
     return require("phoenix")

@@ -1,5 +1,6 @@
-local phoenix = {}
-
+--[[
+	Ashita specific functionality
+--]]
 function main()
 	_addon.author   = 'Mykezero'
 	_addon.name     = 'phoenix'
@@ -9,6 +10,11 @@ function main()
 
 	ashita.register_event('load', load)
 end
+
+local json = require "json"
+local phoenix = { 
+	logs = { }
+}
 
 CommandInputType = { Typed = 1 }
 
@@ -28,8 +34,8 @@ function phoenix.findmob(context)
 	return nil
 end
 
-function phoenix.run(behavior)
-	behavior.execute()
+function phoenix.run(context)
+	table.insert(phoenix.logs, context)
 end
 
 function phoenix.engage()
@@ -45,22 +51,12 @@ function phoenix.load()
 	phoenix.sendcommand("hi!")
 end
 
-function phoenix.testmethod(input)
-	local a = 2
-	if(2 == testmethod2()) then return "hit!" end
-	return "no hit!"
-end
-
-function testmethod2()
-	return 2
+function phoenix.replay(frame)
+	phoenix[frame.method](frame.inputs)
 end
 
 function phoenix.getlogs()
-	return ""
-end
-
-function phoenix.replay(frame)
-	phoenix[frame.method](frame.inputs)
+	return phoenix.logs
 end
 
 return phoenix;
