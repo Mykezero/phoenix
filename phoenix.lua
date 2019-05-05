@@ -45,4 +45,22 @@ function phoenix.load()
 	phoenix.sendcommand("hi!")
 end
 
+function phoenix.testmethod(input)
+	local a = 2
+	if(2 == testmethod2()) then return "hit!" end
+	return "no hit!"
+end
+
+function testmethod2()
+	return 2
+end
+
+function phoenix.getlogs()
+	return ""
+end
+
+function phoenix.replay(frame)
+	phoenix[frame.method](frame.inputs)
+end
+
 return phoenix;
