@@ -33,17 +33,17 @@ describe("FindMob", function ()
 end)
 
 describe("Replay", function()
-	it("should execute method with string argument", function()
+	it("should replay past log events", function()
 		local sut = createsut()
-		stub(sut, "sendcommand")		
-		sut.replay({ 
-			method = "sendcommand", 
-			inputs = "/attack on" 
-		})
-		assert.stub(sut.sendcommand).was.called_with("/attack on")
+		stub(sut, "sendcommand")
+		sut.run({ aggro = true })
+		sut.replay()
+		assert.stub(sut.sendcommand).was.called(2)
 	end)
 end)
 
 function createsut()
-    return require("phoenix")
+	local sut = require "phoenix"
+	sut.reset()
+	return sut
 end

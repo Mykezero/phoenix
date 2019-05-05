@@ -11,15 +11,13 @@ function main()
 	ashita.register_event('load', load)
 end
 
-local json = require "json"
-local phoenix = { 
-	logs = { }
-}
+local phoenix = { }
 
 CommandInputType = { Typed = 1 }
 
--- Do not throw errors when run outside Ashita
-pcall(main)
+function phoenix.reset()
+	phoenix.logs = {}	
+end
 
 function phoenix.findmob(context)
 	table.sort(context.entities, function(a,b)
@@ -35,7 +33,12 @@ function phoenix.findmob(context)
 end
 
 function phoenix.run(context)
-	table.insert(phoenix.logs, context)
+	table.insert(phoenix.logs, context)	
+	phoenix.tick(context)
+end
+
+function phoenix.tick(context)
+	phoenix.engage()
 end
 
 function phoenix.engage()
@@ -51,12 +54,17 @@ function phoenix.load()
 	phoenix.sendcommand("hi!")
 end
 
-function phoenix.replay(frame)
-	phoenix[frame.method](frame.inputs)
+function phoenix.replay()
+	for _, context in pairs(phoenix.logs) do
+		phoenix.tick(v)
+	end
 end
 
 function phoenix.getlogs()
 	return phoenix.logs
 end
+
+-- Do not throw errors when run outside Ashita
+pcall(main)
 
 return phoenix;
