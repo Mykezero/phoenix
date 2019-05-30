@@ -3,29 +3,19 @@
 Phoenix is an attempt at creating an Ashita V3 farmbot for Final Fantasy XI. Phoenix will be designed with the following in mind:
 
 * Minimal Setup - Ashita and notepad are only needed to develop the program (Empower the community to easily make changes and enhance the program).
-* Detailed Logging - Every method logs its name, inputs and outputs as JSON (Make bugs easy to track down by keeping replayable records of every behavior).
+* Detailed Logging - Keep a log of the game state before each application tick (Reduce effort needed to track down bugs, by making the error cases repeatable by replaying the logs).
 * Comprehensive Tests - Avoid running the game to verify that new changes don't break existing features (Reduce effort needed to enhance and maintain the program).
 
 ### Ideas
 
-Replay System.
+Replay System
 
 Code Restrictions:
 * No sleeping - Sleeps make behavior incredible hard to replicate. To imitate a sleep, return early from the function and re-enter checking if the correct amount of time has passed.
 
 * No concurrent actions - Concurrent actions create unpredictable scenarios that are incredibly hard to replicate. Keep the code single threaded, but incredibly fast.
 
-* No indirect inputs - All of the game state and user settings are gathered before an application tick. No other data may be used that wasn't specified at the beginning of a run. You may change data during a run such as setting a IsFighting flag or setting a new Target, but only based on data that was specified at the beginning of the tick.
-
-Snapshot - Snapshots are captured before and after every method invocation. They record: method name, inputs, outputs, starttime, endtime, and indirect inputs from other methods.
-
-Replay - A collection of snapshots are replayable by organizing them by starttime and executing them in that order.
-
-GameState - An immutable object created at the beginning of a frame that contains all of the world information.
-
-AppState - An immutable object created at the beginning of a frame that contains users settings and maybe thing like who the last target was.
-
-TimeWarp (should not be needed if no sleeps are used) - We can speed up a replay by dividing all time units by some interval. For example, if the interval between snapshots is 1000 MS and the sleep in the code an action is 1000 MS, then in the replay, we can divide the time units by 1000 to speed up replay to under one second.
+* No indirect inputs - All of the game state and user settings are gathered before an application tick. No other data may be used that wasn't specified at the beginning of a run. The application tick may return a new state containing an IsFighting flag or a new target, which will be applied to the game context used for the next tick. This way, if we record the game context for every tick, we can debug the system by replaying those logs. 
 
 ### Developing the code
 
