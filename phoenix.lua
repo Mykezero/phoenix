@@ -1,7 +1,6 @@
 local phoenix = { }
 
-CommandInputType = 
-{ 
+CommandInputType = {
 	Typed = 1 
 }
 
