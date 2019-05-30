@@ -17,19 +17,6 @@ function phoenix.reset()
 	phoenix.logs = {}	
 end
 
-function phoenix.findmob(context)
-	table.sort(context.entities, function(a,b)
-		return a.distance < b.distance
-	end)
-
-	for _, v in ipairs(context.entities) do
-		if(v.distance < 25) then
-			return v
-		end
-	end
-	return nil
-end
-
 function phoenix.run(context)
 	table.insert(phoenix.logs, context)	
 	phoenix.tick(context)
