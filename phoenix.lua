@@ -1,19 +1,17 @@
---[[
-	Ashita specific functionality
---]]
-function main()
-	_addon.author   = 'Mykezero'
-	_addon.name     = 'phoenix'
-	_addon.version  = '1.0.0'
-
-	require "common"
-
-	ashita.register_event('load', load)
-end
-
 local phoenix = { }
 
-CommandInputType = { Typed = 1 }
+CommandInputType = 
+{ 
+	Typed = 1 
+}
+
+LogLevel = {
+	None = 0,
+	Information = 1,
+	Warning = 2,
+	Error = 3,
+	Debug = 4
+};
 
 function phoenix.reset()
 	phoenix.logs = {}	
@@ -46,12 +44,11 @@ function phoenix.engage()
 end
 
 function phoenix.sendcommand(command)
-	local Typed = 1
-	QueueCommand(command, 1)
+	AshitaCore:GetChatManager():QueueCommand(command, CommandInputType.Typed)
 end
 
 function phoenix.load()
-	phoenix.sendcommand("hi!")
+	phoenix.sendcommand("/echo hi!")
 end
 
 function phoenix.replay()
@@ -62,6 +59,27 @@ end
 
 function phoenix.getlogs()
 	return phoenix.logs
+end
+
+--[[
+	Ashita specific functionality
+--]]
+function main()
+	_addon.author   = 'Mykezero'
+	_addon.name     = 'phoenix'
+	_addon.version  = '1.0.0'
+
+	require "common"
+
+	ashita.register_event('load', function()
+		phoenix.load()
+	end)
+	
+	ashita.register_event('command', function(cmd, nType)	
+		LogManager:Log(LogLevel.Debug, "Phoenix",  "hit!")
+		print('Command event fired!')
+		return false
+	end)
 end
 
 -- Do not throw errors when run outside Ashita
