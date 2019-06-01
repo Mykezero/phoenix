@@ -1,4 +1,5 @@
-require 'busted.runner'()
+require 'busted.runner'
+require 'spec.test_factory'
 
 describe("Engage", function()
     it("should send attack on command", function()
@@ -9,9 +10,3 @@ describe("Engage", function()
         assert.stub(sut.sendcommand).was.called_with("/attack on")
     end)
 end)
-
-function createsut()
-    local sut = require "phoenix"
-    sut.reset()
-    return sut
-end

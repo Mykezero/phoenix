@@ -1,4 +1,5 @@
 require 'busted.runner'()
+require 'spec.test_factory'
 
 describe("Replay", function()
 	it("should replay past log events", function()
@@ -9,9 +10,3 @@ describe("Replay", function()
 		assert.stub(sut.sendcommand).was.called(2)
 	end)
 end)
-
-function createsut()
-	local sut = require "phoenix"
-	sut.reset()
-	return sut
-end

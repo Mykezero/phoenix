@@ -1,4 +1,5 @@
 require 'busted.runner'()
+require 'spec.test_factory'
 
 describe("Run", function()
     it("should log the input context", function()
@@ -10,9 +11,3 @@ describe("Run", function()
         assert.same({ context }, result)
     end)
 end)
-
-function createsut()
-    local sut = require "phoenix"
-    sut.reset()
-    return sut
-end
