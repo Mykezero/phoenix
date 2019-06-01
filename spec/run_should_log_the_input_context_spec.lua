@@ -3,11 +3,11 @@ require 'spec.test_factory'
 
 describe("Run", function()
     it("should log the input context", function()
-        local sut = createsut()
-        stub(sut, "sendcommand")
+        local api = mock_api()
+        local sut = create_sut(api)
         local context = { command = "HIT!"}
         sut.run(context)
-        local result = sut.getlogs()
+        local result = sut.get_logs()
         assert.same({ context }, result)
     end)
 end)

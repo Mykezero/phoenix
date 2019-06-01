@@ -3,10 +3,10 @@ require 'spec.test_factory'
 
 describe("Engage", function()
     it("should send attack on command", function()
-        local sut = createsut()
-        stub(sut, "sendcommand")
+        local api = mock_api()
+        local sut = create_sut(api)
         sut.engage();
-        assert.stub(sut.sendcommand).was.called()
-        assert.stub(sut.sendcommand).was.called_with("/attack on")
+        assert.stub(api.queue_command).was.called()
+        assert.stub(api.queue_command).was.called_with("/attack on")
     end)
 end)

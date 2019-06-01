@@ -1,16 +1,11 @@
 local phoenix = { }
+local factory = { }
+local _api
 
-CommandInputType = {
-    Typed = 1
-}
-
-LogLevel = {
-    None = 0,
-    Information = 1,
-    Warning = 2,
-    Error = 3,
-    Debug = 4
-};
+function factory.create(api)
+    _api = api
+    return phoenix
+end
 
 function phoenix.reset()
     phoenix.logs = {}
@@ -26,15 +21,11 @@ function phoenix.tick(context)
 end
 
 function phoenix.engage()
-    phoenix.sendcommand("/attack on")
-end
-
-function phoenix.sendcommand(command)
-    AshitaCore:GetChatManager():QueueCommand(command, CommandInputType.Typed)
+    _api.queue_command("/attack on")
 end
 
 function phoenix.load()
-    phoenix.sendcommand("/echo hi!")
+    phoenix.queue_command("/echo hi!")
 end
 
 function phoenix.replay()
@@ -43,8 +34,8 @@ function phoenix.replay()
     end
 end
 
-function phoenix.getlogs()
+function phoenix.get_logs()
     return phoenix.logs
 end
 
-return phoenix;
+return factory;
