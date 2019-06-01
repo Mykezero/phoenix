@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3c16140-1f4e-41ab-9d19-e0ea210e48cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/spec/log_records_message.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phoenix.lua" beforeDir="false" afterPath="$PROJECT_DIR$/phoenix.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/replay_should_replay_past_log_events_apec.lua" beforeDir="false" afterPath="$PROJECT_DIR$/spec/replay_should_replay_past_log_events_apec.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/run_should_log_the_input_context_spec.lua" beforeDir="false" afterPath="$PROJECT_DIR$/spec/run_should_log_the_input_context_spec.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/replay_should_replay_past_log_events_apec.lua" beforeDir="false" afterPath="$PROJECT_DIR$/spec/replay_should_replay_past_log_events_spec.lua" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +17,7 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/phoenix.lua">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -38,16 +30,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spec/log_records_message.lua">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/replay_should_replay_past_log_events_apec.lua">
+        <entry file="file://$PROJECT_DIR$/spec/replay_should_replay_past_log_events_spec.lua">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -105,6 +88,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -121,7 +105,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -163,9 +146,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2647504" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -213,23 +195,10 @@
     <entry file="file://$PROJECT_DIR$/spec/run_should_log_the_input_context.lua" />
     <entry file="file://$PROJECT_DIR$/spec/findmob_should_find_the_closest_mob.lua" />
     <entry file="file://$PROJECT_DIR$/spec/test.lua" />
-    <entry file="file://$PROJECT_DIR$/spec/findmob_should_find_the_closest_mob_spec.lua">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/test_spec.lua">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/findmob_should_find_the_closest_mob_spec.lua" />
+    <entry file="file://$PROJECT_DIR$/spec/test_spec.lua" />
+    <entry file="file://$PROJECT_DIR$/spec/log_records_message.lua" />
     <entry file="file://$PROJECT_DIR$/phoenix.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/run_should_log_the_input_context_spec.lua">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/replay_should_replay_past_log_events_apec.lua">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/engage_sends_attack_on__command_spec.lua">
@@ -239,12 +208,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/log_records_message.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/spec/run_should_log_the_input_context_spec.lua">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/replay_should_replay_past_log_events_spec.lua">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
