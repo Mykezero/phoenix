@@ -30,7 +30,7 @@ The test suite requires Lua and Busted to be installed. The following instructio
 
 1. Enable the linux subsystem for Windows in "Turn Windows features on or off"
 
-2. Install opensuse as the subsystem shell.
+2. Install ubuntu as the subsystem shell.
 
 3. Open bash in Window's powershell
 
@@ -38,30 +38,18 @@ The test suite requires Lua and Busted to be installed. The following instructio
 
 `bash`
 
-3. Install lua
-
-###### Bash
-
-`yast install lua`
-
-4. Install luarocks
+4. Install Lua, LuaRocks and Busted
 
 ###### Bash
 
 ```
-wget https://luarocks.org/releases/luarocks-3.0.4.tar.gz
-tar zxpf luarocks-3.0.4.tar.gz
-cd luarocks-3.0.4
-sudo yast --install lua-luafilesystem
-sudo yast --install lua-devel
-sudo ./configure; sudo make bootstrap
+sudo apt-get update
+sudo apt-get install lua5.2
+sudo apt-get install luarocks
+sudo apt-get install lua-filesystem
+sudo apt-get install liblua5.2-dev
+sudo luarocks install busted
 ```
-
-5. Install busted
-
-###### Bash
-
-`sudo /usr/local/bin/luarocks install busted`
 
 6. Run tests using busted
 
